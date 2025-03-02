@@ -29,14 +29,13 @@ class WixSubscriptionManager:
         all_orders = response.json().get('orders', [])
         logger.info(f"Retrieved {len(all_orders)} total orders from Wix")
         
-        # Filter only active orders that contain 'online' in the plan name
+        # Filter only active orders
         filtered_orders = [
             order for order in all_orders 
-            if 'online' in order.get('planName', '').lower() and
-            order.get('status', '').lower() == 'active'
+            if order.get('status', '').lower() == 'active'
         ]
         
-        logger.info(f"Filtered to {len(filtered_orders)} active online plans")
+        logger.info(f"Filtered to {len(filtered_orders)} active plans")
         return filtered_orders
 
     def get_contact_info(self, contact_id: str):
