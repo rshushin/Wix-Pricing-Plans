@@ -18,7 +18,7 @@ class WixSubscriptionManager:
         }
         
     def get_purchased_plans(self):
-        """Get active orders with 'online' in plan name"""
+        """Get active subscription orders"""
         endpoint = "https://www.wixapis.com/pricing-plans/v2/orders"
         response = requests.get(endpoint, headers=self.headers)
         
@@ -160,7 +160,7 @@ def main():
         if orders:
             upload_to_sheets(orders, SHEET_ID, WORKSHEET_ID, CREDENTIALS_PATH, manager)
         else:
-            logger.warning("No active online plans found")
+            logger.warning("No active plans found")
     except Exception as e:
         logger.error(f"Error during execution: {e}", exc_info=True)
     
