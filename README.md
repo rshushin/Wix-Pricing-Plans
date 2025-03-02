@@ -5,7 +5,7 @@ A Python utility for managing Wix subscription data and syncing it to Google She
 ## Features
 
 - Retrieves active subscription orders from Wix API
-- Filters orders containing "online" in the plan name
+- Filters active subscription orders
 - Fetches customer contact information
 - Formats and uploads data to Google Sheets
 - Highlights subscriptions with end dates for easy tracking
